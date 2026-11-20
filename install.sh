@@ -18,14 +18,13 @@ wget -qO ~/.bash_aliases "https://raw.githubusercontent.com/${USERNAME}/${REPONA
 
 git config --global user.email "$USEREMAIL";
 git config --global user.name "$NAME";
-git config --global credential.helper 'cache --timeout=7200';
 
 
 
 echo "and downloading your repos";
 for r in "${REPOS[@]}"; do
 	if [ ! -d "$HOME/$r" ]; then
-		git clone "https://github.com/$USERNAME/$r.git" "$HOME/$r";
+		git clone "git@github.com/$USERNAME/$r.git" "$HOME/$r";
 	fi
 done;
 
